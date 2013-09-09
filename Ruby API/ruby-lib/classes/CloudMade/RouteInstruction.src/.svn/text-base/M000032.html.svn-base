@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (CloudMade::RouteInstruction)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/routing.rb, line 131</span>
+131:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">data</span>)
+132:       <span class="ruby-ivar">@instruction</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>]
+133:       <span class="ruby-ivar">@length</span> = <span class="ruby-constant">Float</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value">1</span>])
+134:       <span class="ruby-ivar">@position</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value">2</span>])
+135:       <span class="ruby-ivar">@time</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value">3</span>])
+136:       <span class="ruby-ivar">@length_caption</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">4</span>]
+137:       <span class="ruby-ivar">@earth_direction</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">5</span>]
+138:       <span class="ruby-ivar">@azimuth</span> = <span class="ruby-constant">Float</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value">6</span>])
+139:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">9</span>
+140:         <span class="ruby-ivar">@turn_type</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">7</span>]
+141:         <span class="ruby-ivar">@turn_angle</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">8</span>]
+142:       <span class="ruby-keyword kw">end</span>
+143:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

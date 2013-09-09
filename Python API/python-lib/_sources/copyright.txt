@@ -1,0 +1,7 @@
+=========
+Copyright
+=========
+
+Python CloudMade API and this documentation is:
+
+Copyright © 2008-2009 CloudMade. All rights reserved.

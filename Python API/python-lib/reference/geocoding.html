@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>geocoding — Making searching for places easier &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="up" title="Reference API" href="index.html" />
+    <link rel="next" title="routing — Building routes" href="routing.html" />
+    <link rel="prev" title="api — Generalized access to CloudMade APIs" href="api.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="routing.html" title="routing — Building routes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="api — Generalized access to CloudMade APIs"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Reference API</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-geocoding">
+<h1><tt class="xref docutils literal"><span class="pre">geocoding</span></tt> &#8212; Making searching for places easier<a class="headerlink" href="#module-geocoding" title="Permalink to this headline">¶</a></h1>
+<p>This module covers
+<a class="reference external" href="http://developers.cloudmade.com/projects/show/geocoding-http-api">CloudMade&#8217;s Geocoding HTTP API</a>.</p>
+<div class="section" id="geocoder-objects">
+<h2>Geocoder objects<a class="headerlink" href="#geocoder-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geocoding.Geocoder">
+<em class="property">class </em><tt class="descclassname">geocoding.</tt><tt class="descname">Geocoder</tt><big>(</big><em>apikey</em>, <em>referrer</em><big>)</big><a class="headerlink" href="#geocoding.Geocoder" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>apikey</em> is your API key that you&#8217;ve registered at <a class="reference external" href="http://www.cloudmade.com/user/show">CloudMade</a>.</p>
+<p><em>referrer</em> is the host that is tied to your API key.</p>
+<dl class="method">
+<dt id="geocoding.Geocoder.find">
+<tt class="descname">find</tt><big>(</big><em>query</em><big>)</big><a class="headerlink" href="#geocoding.Geocoder.find" title="Permalink to this definition">¶</a></dt>
+<dd>Find objects that match the given <em>query</em>.
+Response is basically a dict with geographical info.
+There&#8217;re several good examples of responses <a class="reference external" href="http://developers.cloudmade.com/wiki/geocoding-http-api/Examples">here</a>.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="query-objects">
+<h2>Query objects<a class="headerlink" href="#query-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geocoding.Query">
+<em class="property">class </em><tt class="descclassname">geocoding.</tt><tt class="descname">Query</tt><big>(</big><span class="optional">[</span><em>search_query</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#geocoding.Query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new query builder. <em>search_query</em> is optional and specifies the address
+or a keyword to search for.</p>
+<dl class="method">
+<dt id="geocoding.Query.bbox">
+<tt class="descname">bbox</tt><big>(</big><em>coords</em><span class="optional">[</span>, <em>bbox_only=False</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#geocoding.Query.bbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the bounding box, where the objects will be searched. <em>coords</em>
+is expected to be any sequnce with 4 values representing
+southern_latitude, western_longitude, northern_latitude and
+eastern_longitude respectively.</p>
+<p>If <em>bbox_only</em> is set to True than only objects in this bounding box
+will be returned. If set to False objects not in the bounding box
+will also be returned but they will be at the end of objects list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geocoding.Query.around">
+<tt class="descname">around</tt><big>(</big><em>coord</em><span class="optional">[</span>, <em>radius=100</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#geocoding.Query.around" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search around the <em>coord</em>. <em>coord</em> could be a pair of longitude,
+latitude coordinates or an address/keyword.</p>
+<p><em>radius</em> limits the area of the search.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geocoding.Query.skip">
+<tt class="descname">skip</tt><big>(</big><em>num</em><big>)</big><a class="headerlink" href="#geocoding.Query.skip" title="Permalink to this definition">¶</a></dt>
+<dd>Skip exactly <em>num</em> first objects from the response.</dd></dl>
+
+<dl class="method">
+<dt id="geocoding.Query.limit">
+<tt class="descname">limit</tt><big>(</big><em>num</em><big>)</big><a class="headerlink" href="#geocoding.Query.limit" title="Permalink to this definition">¶</a></dt>
+<dd>Limit the number of objects returned to <em>num</em> quantity.</dd></dl>
+
+<dl class="method">
+<dt id="geocoding.Query.geometry">
+<tt class="descname">geometry</tt><big>(</big><em>state</em><big>)</big><a class="headerlink" href="#geocoding.Query.geometry" title="Permalink to this definition">¶</a></dt>
+<dd>Control the output of geometry. If set to True additional
+geometry information will be returned.</dd></dl>
+
+<dl class="method">
+<dt id="geocoding.Query.location">
+<tt class="descname">location</tt><big>(</big><em>state</em><big>)</big><a class="headerlink" href="#geocoding.Query.location" title="Permalink to this definition">¶</a></dt>
+<dd>If set to <em>True</em> will return additional location information</dd></dl>
+
+<dl class="method">
+<dt id="geocoding.Query.object_type">
+<tt class="descname">object_type</tt><big>(</big><em>type</em><big>)</big><a class="headerlink" href="#geocoding.Query.object_type" title="Permalink to this definition">¶</a></dt>
+<dd>Defines what type of objects should be looked for.
+See full listing of object types <a class="reference external" href="http://developers.cloudmade.com/wiki/geocoding-http-api/Object_Types">here</a>.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Looking for pubs not farther than 500 meters from current point (randomly chosen for this example):</p>
+<blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">geocoding</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">geocoder</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">Geocoder</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="n">referer</span><span class="o">=</span><span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;pub&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">around</span><span class="p">([</span><span class="mf">51.51384</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10952</span><span class="p">],</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">geocoder</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</blockquote>
+<dl class="docutils">
+<dt>Looking for exactly 5 cinemas in bounding box including Berlin:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">geocoding</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">geocoder</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">Geocoder</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="n">referer</span><span class="o">=</span><span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">bbox</span><span class="p">([</span><span class="mf">52.5884</span><span class="p">,</span> <span class="mf">13.1788</span><span class="p">,</span> <span class="mf">52.4745</span><span class="p">,</span> <span class="mf">13.5381</span><span class="p">],</span> <span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">object_type</span><span class="p">(</span><span class="s">&#39;cinema&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">geocoder</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href=""><tt class="docutils literal"><span class="pre">geocoding</span></tt> &#8212; Making searching for places easier</a><ul>
+<li><a class="reference external" href="#geocoder-objects">Geocoder objects</a></li>
+<li><a class="reference external" href="#query-objects">Query objects</a></li>
+<li><a class="reference external" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="api.html"
+                                  title="previous chapter"><tt class="docutils literal docutils literal"><span class="pre">api</span></tt> &#8212; Generalized access to CloudMade APIs</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="routing.html"
+                                  title="next chapter"><tt class="docutils literal"><span class="pre">routing</span></tt> &#8212; Building routes</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/reference/geocoding.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="routing.html" title="routing — Building routes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="api — Generalized access to CloudMade APIs"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Reference API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

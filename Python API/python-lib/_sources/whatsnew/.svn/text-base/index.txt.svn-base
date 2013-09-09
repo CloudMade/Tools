@@ -1,0 +1,12 @@
+===========================
+What's new in CloudMade API
+===========================
+
+This page contains links to short overview of what has been done
+in each of the released versions.
+
+.. toctree::
+   :maxdepth: 2
+
+   0.2.rst
+   0.1.rst

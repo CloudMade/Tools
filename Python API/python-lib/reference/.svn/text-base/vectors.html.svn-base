@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>vectors — Vector data access &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="up" title="Reference API" href="index.html" />
+    <link rel="next" title="What’s new in CloudMade API" href="../whatsnew/index.html" />
+    <link rel="prev" title="tiles — Tiles access" href="tiles.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="../whatsnew/index.html" title="What’s new in CloudMade API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tiles.html" title="tiles — Tiles access"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Reference API</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-vectors">
+<h1><tt class="xref docutils literal"><span class="pre">vectors</span></tt> &#8212; Vector data access<a class="headerlink" href="#module-vectors" title="Permalink to this headline">¶</a></h1>
+<p>This module covers
+<a class="reference external" href="http://developers.cloudmade.com/projects/show/vector-stream-server">CloudMade&#8217;s Vector Stream Server API</a>.</p>
+<div class="section" id="vector-objects">
+<h2>Vector objects<a class="headerlink" href="#vector-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="vectors.Vector">
+<em class="property">class </em><tt class="descclassname">vectors.</tt><tt class="descname">Vector</tt><big>(</big><em>apikey</em>, <em>referrer</em><big>)</big><a class="headerlink" href="#vectors.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>apikey</em> is your API key that you&#8217;ve registered at <a class="reference external" href="http://www.cloudmade.com/user/show">CloudMade</a>.</p>
+<p><em>referrer</em> is the host that is tied to your API key.</p>
+<dl class="method">
+<dt id="vectors.Vector.bbox">
+<tt class="descname">bbox</tt><big>(</big><em>query</em><big>)</big><a class="headerlink" href="#vectors.Vector.bbox" title="Permalink to this definition">¶</a></dt>
+<dd>Perform request with a given <em>query</em>.</dd></dl>
+
+<dl class="method">
+<dt id="vectors.Vector.tile">
+<tt class="descname">tile</tt><big>(</big><em>styleid</em>, <em>size</em>, <em>zoom</em>, <em>xtile</em>, <em>ytile</em><big>)</big><a class="headerlink" href="#vectors.Vector.tile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch SVG tile from tile server.</p>
+<p><em>styleid</em> is the CloudMade style id.</p>
+<p><em>size</em> is the size of the tile. Can be 256 or 64.</p>
+<p><em>zoom</em> is the zoom level on which you&#8217;re trying to fetch tile.</p>
+<p><em>xtile</em> and <em>ytile</em> are tile numbers.</p>
+<p>Read more about these <a class="reference external" href="http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames">here</a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="query-objects">
+<h2>Query objects<a class="headerlink" href="#query-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="vectors.Query">
+<em class="property">class </em><tt class="descclassname">vectors.</tt><tt class="descname">Query</tt><big>(</big><em>bbox</em><big>)</big><a class="headerlink" href="#vectors.Query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new query builder. <em>bbox</em> is a sequnce of 4 coordinates
+representing southern_latitude, western_longitude,
+northern_latitude and eastern_longitude respectively.</p>
+<dl class="method">
+<dt id="vectors.Query.types">
+<tt class="descname">types</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#vectors.Query.types" title="Permalink to this definition">¶</a></dt>
+<dd>Select which types of data should be returned. Can be any combination of
+<a title="vectors.POLYGON" class="reference internal" href="#vectors.POLYGON"><tt class="xref docutils literal"><span class="pre">POLYGON</span></tt></a>, <a title="vectors.LINE" class="reference internal" href="#vectors.LINE"><tt class="xref docutils literal"><span class="pre">LINE</span></tt></a> or <a title="vectors.POINT" class="reference internal" href="#vectors.POINT"><tt class="xref docutils literal"><span class="pre">POINT</span></tt></a>.</dd></dl>
+
+<dl class="method">
+<dt id="vectors.Query.viewport">
+<tt class="descname">viewport</tt><big>(</big><em>width</em>, <em>height</em><big>)</big><a class="headerlink" href="#vectors.Query.viewport" title="Permalink to this definition">¶</a></dt>
+<dd>The size of the vector data returned in pixels.</dd></dl>
+
+<dl class="method">
+<dt id="vectors.Query.style">
+<tt class="descname">style</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#vectors.Query.style" title="Permalink to this definition">¶</a></dt>
+<dd>Defines CloudMade style id which should be used for filtering and styling
+of data</dd></dl>
+
+<dl class="method">
+<dt id="vectors.Query.zoom">
+<tt class="descname">zoom</tt><big>(</big><em>level</em><big>)</big><a class="headerlink" href="#vectors.Query.zoom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vectors.Query.coords">
+<tt class="descname">coords</tt><big>(</big><em>type</em><big>)</big><a class="headerlink" href="#vectors.Query.coords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vectors.Query.precision">
+<tt class="descname">precision</tt><big>(</big><em>level</em><big>)</big><a class="headerlink" href="#vectors.Query.precision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vectors.Query.unused">
+<tt class="descname">unused</tt><big>(</big><em>action</em><big>)</big><a class="headerlink" href="#vectors.Query.unused" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="vectors.Query.exclude">
+<tt class="descname">exclude</tt><big>(</big><em>*bboxes</em><big>)</big><a class="headerlink" href="#vectors.Query.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="vectors.POLYGON">
+<tt class="descclassname">vectors.</tt><tt class="descname">POLYGON</tt><a class="headerlink" href="#vectors.POLYGON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="vectors.LINE">
+<tt class="descclassname">vectors.</tt><tt class="descname">LINE</tt><a class="headerlink" href="#vectors.LINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="vectors.POINT">
+<tt class="descclassname">vectors.</tt><tt class="descname">POINT</tt><a class="headerlink" href="#vectors.POINT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Simple vector request:</p>
+<blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">vectors</span>
+
+<span class="n">vector</span> <span class="o">=</span> <span class="n">vectors</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="n">referer</span><span class="o">=</span><span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">vectors</span><span class="o">.</span><span class="n">Query</span><span class="p">([</span><span class="mf">51.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">51.52</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">types</span><span class="p">(</span><span class="n">vectors</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">vectors</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">vector</span><span class="o">.</span><span class="n">bbox</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;London.svg&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</blockquote>
+<p>Downloading part of San Francisco in one tile:</p>
+<blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">vectors</span>
+
+<span class="n">vector</span> <span class="o">=</span> <span class="n">vectors</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="n">referer</span><span class="o">=</span><span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">vector</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s">&#39;997&#39;</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">327</span><span class="p">,</span> <span class="mi">791</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;SF.png&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href=""><tt class="docutils literal"><span class="pre">vectors</span></tt> &#8212; Vector data access</a><ul>
+<li><a class="reference external" href="#vector-objects">Vector objects</a></li>
+<li><a class="reference external" href="#query-objects">Query objects</a></li>
+<li><a class="reference external" href="#constants">Constants</a></li>
+<li><a class="reference external" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="tiles.html"
+                                  title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">tiles</span></tt> &#8212; Tiles access</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../whatsnew/index.html"
+                                  title="next chapter">What&#8217;s new in CloudMade API</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/reference/vectors.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../whatsnew/index.html" title="What’s new in CloudMade API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tiles.html" title="tiles — Tiles access"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Reference API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

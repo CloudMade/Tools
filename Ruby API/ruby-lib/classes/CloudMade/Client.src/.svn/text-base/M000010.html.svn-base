@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>from_connection (CloudMade::Client)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/client.rb, line 60</span>
+60:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">from_connection</span>(<span class="ruby-identifier">connection</span>)
+61:         <span class="ruby-identifier">client</span> = <span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>
+62:         <span class="ruby-identifier">client</span>.<span class="ruby-identifier">connection</span> = <span class="ruby-identifier">connection</span>
+63:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">client</span>
+64:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

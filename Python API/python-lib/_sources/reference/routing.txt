@@ -1,0 +1,109 @@
+=======================================================
+:mod:`routing` --- Building routes
+=======================================================
+
+.. module:: routing
+   :synopsis: Routing API
+
+This module covers 
+`CloudMade's Routing HTTP API <http://developers.cloudmade.com/projects/show/routing-http-api>`_\.
+
+----------------
+Router objects
+----------------
+
+.. class:: Router(apikey, referrer)
+
+   *apikey* is your API key that you've registered at `CloudMade <http://www.cloudmade.com/user/show>`_\.
+
+   *referrer* is the host that is tied to your API key.
+
+   .. method:: route(query)
+
+      Build a route for a given *query*.
+
+-------------
+Query objects
+-------------
+
+.. class:: Query([from_=None, to=None])
+
+   Create new query builder. *from_* is the starting point of the route,
+
+   .. method:: from_(point)
+
+      Set the starting point of the route.
+
+   .. method:: to(point)
+
+      Set the end point of the route.
+
+   .. method:: car([shortest=False])
+
+      Look for car routes. Set *shortest* to *True* if you want to find
+      the shortest route possible. This might not be the best route available though
+      because route will be ignoring the level of the road (i.e. ignoring the fact
+      that residential roads have maximum speed limits much lower than motorways).
+
+   .. method:: foot()
+
+      Look for pedestrian routes.
+
+   .. method:: bicycle()
+
+      Look for bike routes.
+
+   .. method:: lang(specifier)
+
+      Define which language should be used for route instructions. *specifier* is 
+      expected to be two-letter `ISO-639-2 <http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes>`_ 
+      code.
+
+   .. method:: js()
+
+      Set the response type to JSON.
+
+   .. method:: gpx()
+
+      Set the response type GPX.
+
+   .. method:: km()
+
+      Set the units of distance calculation to kilometers.
+
+   .. method:: miles()
+
+      Set the units of distance calculation to miles.   
+
+   .. method:: through(*coords)
+   
+      Specify transit points. This method can be called several times.
+
+--------
+Examples
+--------
+
+Routing in Amsterdam from Central Station to Rijksmusem (or somewhere near):
+
+   .. code-block:: python
+   
+      from cloudmade import routing
+      from pprint import pprint
+
+      router = routing.Router(apikey='Your API key', referer='your-domain.com')
+      query = routing.Query([52.37, 4.89], [52.36, 4.88]).miles()
+      result = router.route(query)
+      pprint(result)
+
+Looking for a route between Kyiv and Kuznetsovsk with a stop in Zhitomir:
+
+   .. code-block:: python
+   
+      from cloudmade import routing
+      from pprint import pprint
+
+      router = routing.Router(apikey='Your API key', referer='your-domain.com')
+      query = routing.Query().from_([50.45, 30.53]).to([51.34, 25.87]).through([50.25, 28.66]).lang('ru')
+      result = router.route(query)
+      pprint(result)
+

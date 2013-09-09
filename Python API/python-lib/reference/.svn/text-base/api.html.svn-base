@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>api — Generalized access to CloudMade APIs &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="up" title="Reference API" href="index.html" />
+    <link rel="next" title="geocoding — Making searching for places easier" href="geocoding.html" />
+    <link rel="prev" title="Reference API" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="geocoding.html" title="geocoding — Making searching for places easier"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Reference API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Reference API</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-api">
+<h1><tt class="xref docutils literal"><span class="pre">api</span></tt> &#8212; Generalized access to CloudMade APIs<a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h1>
+<p>This module gives generalized access to all CloudMade services throught <a title="api.API" class="reference internal" href="#api.API"><tt class="xref docutils literal"><span class="pre">API</span></tt></a> object.</p>
+<dl class="class">
+<dt id="api.API">
+<em class="property">class </em><tt class="descclassname">api.</tt><tt class="descname">API</tt><big>(</big><em>apikey</em>, <em>referrer</em><big>)</big><a class="headerlink" href="#api.API" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>apikey</em> is your API key that you&#8217;ve registered at <a class="reference external" href="http://www.cloudmade.com/user/show">CloudMade</a>.</p>
+<p><em>referrer</em> is the host that is tied to your API key.</p>
+<dl class="method">
+<dt id="api.API.find">
+<tt class="descname">find</tt><big>(</big><em>query</em><big>)</big><a class="headerlink" href="#api.API.find" title="Permalink to this definition">¶</a></dt>
+<dd>Perform a geocoding search for a given <em>query</em>. <em>query</em> is expected to be instance of
+<a title="geocoding.Query" class="reference external" href="geocoding.html#geocoding.Query"><tt class="xref docutils literal"><span class="pre">geocoding.Query</span></tt></a></dd></dl>
+
+<dl class="method">
+<dt id="api.API.route">
+<tt class="descname">route</tt><big>(</big><em>query</em><big>)</big><a class="headerlink" href="#api.API.route" title="Permalink to this definition">¶</a></dt>
+<dd>Build a route using given query. <em>query</em> is expected to be instance of <a title="routing.Query" class="reference external" href="routing.html#routing.Query"><tt class="xref docutils literal"><span class="pre">routing.Query</span></tt></a>.
+For more details on building routing queries, visit <a title="Routing API" class="reference external" href="routing.html#module-routing"><tt class="xref docutils literal"><span class="pre">routing</span></tt></a></dd></dl>
+
+<dl class="method">
+<dt id="api.API.tile">
+<tt class="descname">tile</tt><big>(</big><em>styleid</em>, <em>size</em>, <em>zoom</em>, <em>xtile</em>, <em>ytile</em><big>)</big><a class="headerlink" href="#api.API.tile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="api.API.vector_tile">
+<tt class="descname">vector_tile</tt><big>(</big><em>styleid</em>, <em>size</em>, <em>zoom</em>, <em>xtile</em>, <em>ytile</em><big>)</big><a class="headerlink" href="#api.API.vector_tile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the tile from tile server. Use vector_tile() for getting SVG tiles and tile for getting PNG tiles.</p>
+<p><em>styleid</em> is the CloudMade style id.</p>
+<p><em>size</em> is the size of the tile. Can be 256 or 64.</p>
+<p><em>zoom</em> is the zoom level on which you&#8217;re trying to fetch tile.</p>
+<p><em>xtile</em> and <em>ytile</em> are tile numbers. Read more about these <a class="reference external" href="http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames">here</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="api.API.multitile">
+<tt class="descname">multitile</tt><big>(</big><em>styleid</em>, <em>size</em>, <em>zoom</em>, <em>tilenums</em><big>)</big><a class="headerlink" href="#api.API.multitile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch several tiles at once.</p>
+<p><em>tilenums</em> is a sequence of xtile, ytile pairs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="api.API.staticmap">
+<tt class="descname">staticmap</tt><big>(</big><em>query</em><big>)</big><a class="headerlink" href="#api.API.staticmap" title="Permalink to this definition">¶</a></dt>
+<dd>Create static map using given <em>query</em>. <em>query</em> is expected to be instance of
+<a title="staticmaps.Query" class="reference external" href="staticmaps.html#staticmaps.Query"><tt class="xref docutils literal"><span class="pre">staticmaps.Query</span></tt></a>. For more details on building staticmaps
+queries, visit <a title="Routing API" class="reference external" href="routing.html#module-routing"><tt class="xref docutils literal"><span class="pre">routing</span></tt></a>.</dd></dl>
+
+<dl class="method">
+<dt id="api.API.vector">
+<tt class="descname">vector</tt><big>(</big><em>query</em><big>)</big><a class="headerlink" href="#api.API.vector" title="Permalink to this definition">¶</a></dt>
+<dd>Create static map using given <em>query</em>. <em>query</em> is expected to be instance of
+<a title="vectors.Query" class="reference external" href="vectors.html#vectors.Query"><tt class="xref docutils literal"><span class="pre">vectors.Query</span></tt></a>. For more details on building staticmaps
+queries, visit <a title="Vector data access" class="reference external" href="vectors.html#module-vectors"><tt class="xref docutils literal"><span class="pre">vectors</span></tt></a>.</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Routing from San-Francisco to Palo Alto and getting tiles with end and start points of this route:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">geocoding</span><span class="p">,</span> <span class="n">routing</span><span class="p">,</span> <span class="n">utils</span>
+
+<span class="n">cm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&#39;YOUR-API-KEY&#39;</span><span class="p">,</span> <span class="n">referrer</span><span class="o">=</span><span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">sf</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;San Francisco&#39;</span><span class="p">))[</span><span class="s">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;centroid&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span>
+<span class="n">palo_alto</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;Palo Alto&#39;</span><span class="p">))[</span><span class="s">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;centroid&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span>
+<span class="n">route</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="n">routing</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">sf</span><span class="p">,</span> <span class="n">palo_alto</span><span class="p">))</span>
+<span class="n">zoom</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="p">[</span><span class="n">utils</span><span class="o">.</span><span class="n">latlon2tilenums</span><span class="p">(</span><span class="n">zoom</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sf</span><span class="p">,</span> <span class="n">palo_alto</span><span class="p">)]</span>
+<span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="p">[</span><span class="n">cm</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> <span class="o">*</span><span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;startpoint.png&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;endpoint.png&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href=""><tt class="docutils literal"><span class="pre">api</span></tt> &#8212; Generalized access to CloudMade APIs</a><ul>
+<li><a class="reference external" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="index.html"
+                                  title="previous chapter">Reference API</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="geocoding.html"
+                                  title="next chapter"><tt class="docutils literal"><span class="pre">geocoding</span></tt> &#8212; Making searching for places easier</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/reference/api.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="geocoding.html" title="geocoding — Making searching for places easier"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Reference API"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Reference API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

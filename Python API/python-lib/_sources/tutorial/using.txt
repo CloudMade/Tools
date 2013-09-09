@@ -1,0 +1,124 @@
+======================================================================
+Searching for local amenities, businesses and other places of interest
+======================================================================
+
+Enter Python interpreter and import CloudMade package with the following
+command::
+
+   >>> from cloudmade import api
+
+Now you have to create API object which will be used for querying CloudMade services::
+
+   >>> cm = api.API('Your API key', 'your-referrer.com')
+
+Say, we want to look for pubs within 250 meters around Hanover Square in London, UK. To 
+achieve this target we create a query that does exactly this::
+
+   >>> query = api.geocoding.Query().around('Hanover Square,London,UK', 250).object_type('pub')
+
+Now all we have to do is issue the search command::
+
+   >>> result = cm.find(query)
+
+Result is a Python ``dict`` object, with a `GeoJSON <http://geojson.org/>`_\-like structure.
+You can now pretty print the result if you want to examine the result::
+
+   >>> from pprint import pprint
+   >>> pprint(result)
+
+Now, you might want to create a more complex request. For example, you know the bounding box
+that envelopes London center and want to look for IMAX cinemas. In order to do that, you have
+to look for objects with type 'cinema' which have `IMAX` in their names. Here's an example of
+such approach::
+
+   >>> query = api.geocoding.Query('IMAX').bbox([51.45, -0.14, 51.75, 0.05]).object_type('cinema')
+   >>> result = cm.find(query)
+   >>> pprint(result)
+
+This covers basics of geocoding usage. But don't exit your interactive interpreter just yet, 
+there's more to follow.
+
+================================
+Finding routes between locations
+================================
+
+Another common task in geo applications is building routes between locations.
+CloudMade has a powerful routing engine, which allows searching not only for
+car routes, but also pedestrian and bicycle ones.
+
+For example, you might be looking for a route between Washington Square Park 
+and Buena Vista Park in San Francisco. First, we have to find location of
+these parks::
+
+   >>> current = cm.find(api.geocoding.Query('Washington Square Park,San Francisco'))['features'][0]['centroid']['coordinates']
+   >>> destination = cm.find(api.geocoding.Query('Buena Vista Park, San Francisco'))['features'][0]['centroid']['coordinates']
+
+Now, lets build a routing query::
+
+   >>> query = api.routing.Query(current, destination)
+
+And at last, find the route between two points itself::
+
+   >>> route = cm.route(query)
+   >>> pprint(route)
+
+This will print whole route instructions, which contain several records:
+ 
+* ``route_geometry`` -- list of points describing the geometry of the route
+* ``route_instructions`` -- list of instructions for the route
+* ``route_summary`` -- various statistics related to the route
+* ``status`` -- 0 if everything went fine
+* ``version`` -- current version of the routing engine
+
+You can also search for walking routes, like this (note :meth:`foot` call)::
+   
+   >>> current = cm.find(api.geocoding.Query('Nieuwmarkt, Amsterdam'))['features'][0]['centroid']['coordinates']
+   >>> destination = cm.find(api.geocoding.Query('Buena Vista Park, San Francisco'))['features'][0]['centroid']['coordinates']
+   >>> query = api.routing.Query(current, destination).foot()
+
+And now build the route::
+
+   >>> route = cm.route()
+   >>> pprint(route)
+
+=============
+Getting tiles
+=============
+
+Now, you probably need to get the map itself. To do this, you can use
+tiles service. If you don't know what tiles are more about them on
+`OpenStreetMap wiki <http://wiki.openstreetmap.org/wiki/Slippy_Map>`_\.
+
+To download a tile, you have to know it's tile coordinate. As most
+geo services use latitudes and longitudes, there are two helper
+functions in CloudMade Python API which convert betwee geo
+and tile coordinates. Here's a tiny example of such usage (we're converting
+coordinates which point to Greenwich)::
+
+   >>> from cloudmade import utils
+   >>> xtile, ytile = utils.latlon2tilenums(14, [51.467, 0.0])
+
+Note that we also passed ``14`` to the :func:`latlon2tilenums` function.
+This number defines the zoom level of the tile.
+
+Now that we have so called tile coordinates (``xtile`` and ``ytile``)
+we can download the tile, which is described by these coordinates::
+
+   >>> cm.tile('1', 256, 14, xtile, ytile)
+
+Now we have two more new things. First, we pass so-called `style id` as the
+first argument. Style id defines the way map looks. You can easily 
+`define <http://maps.cloudmade.com/editor>`_ your own unique style to be
+used in your applications. The second argument passed to :meth:`tile` is
+the size of the tile in pixels. Currently only 256 or 64 can be used
+for this parameter. Third parameter is the zoom level, which was
+explained before and than you pass tile coordinates.
+
+Well, this covers basic usage of CloudMade Python API. In order to continue, 
+use `reference API documentation <../reference/index.html>`_\. You can also get some help at 
+`CloudMade developers mailing list <http://lists.cloudmade.com/>`_
+
+..   >>> image = cm.staticmap(api.staticmaps.Query().path(route['route_geometry']))
+..   >>> with open('./sf-paloalto.route.png', 'w') as map:
+..   ...      map.write(image)
+

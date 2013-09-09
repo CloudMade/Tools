@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="up" title="CloudMade Python API tutorial" href="index.html" />
+    <link rel="next" title="Searching for local amenities, businesses and other places of interest" href="using.html" />
+    <link rel="prev" title="Important notes" href="before-you-start.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="using.html" title="Searching for local amenities, businesses and other places of interest"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="before-you-start.html" title="Important notes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">CloudMade Python API tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-easy-install">
+<h2>Using <cite>easy_install</cite><a class="headerlink" href="#using-easy-install" title="Permalink to this headline">¶</a></h2>
+<p>If you have easy_install on your system, you may install CloudMade Python API
+by simply issuing following command from your terminal:</p>
+<div class="highlight-python"><pre>easy_install CloudMade</pre>
+</div>
+<p>This will install CloudMade Python API and satisfy all required dependencies.</p>
+<p>If you don&#8217;t have easy_install already installed, you should follow
+<a class="reference external" href="http://pypi.python.org/pypi/setuptools#installation-instructions">instructions</a>for your system.</p>
+</div>
+<div class="section" id="from-source">
+<h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
+<p>If you prefer to install from source, rather than using Python package manager,
+you can look for releases on
+<a class="reference external" href="http://bitbucket.org/mishok13/cloudmade-python/downloads/">downloads page</a>.
+Current release is 0.2.
+After downloading and unpacking the archive, change current directory to
+<cite>cloudmade-python</cite> and run this command:</p>
+<div class="highlight-python"><pre>python setup.py install</pre>
+</div>
+<p>This should install the package itself, but will not satisfy dependencies.
+Currently CloudMade Python API requires <tt class="xref docutils literal"><span class="pre">simplejson</span></tt> module for Python versions
+lower than 2.6. You can download latest release from
+<a class="reference external" href="http://pypi.python.org/pypi/simplejson/">PyPI</a>.</p>
+</div>
+<div class="section" id="from-mercurial-checkout">
+<h2>From Mercurial checkout<a class="headerlink" href="#from-mercurial-checkout" title="Permalink to this headline">¶</a></h2>
+<p>You can also install the latest development version, by using recent checkout.
+To do this, issue this command:</p>
+<div class="highlight-python"><pre>hg clone http://bitbucket.org/mishok13/cloudmade-python/</pre>
+</div>
+<p>To be able to do this, you have to have Mercurial version control system installed.
+Follow install instructions on <a class="reference external" href="http://mercurial.selenic.com/downloads/">official site</a>.</p>
+</div>
+</div>
+<div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<p>If you feel like contributing to the project, please do so by:</p>
+<ul class="simple">
+<li>Posting bug reports at <a class="reference external" href="http://developers.cloudmade.com/projects/python-lib/issues">official bug-tracker</a></li>
+<li>Providing patches for the bugs using latest <a class="reference external" href="http://bitbucket.org/mishok13/cloudmade-python/src/">checkout</a></li>
+<li>Contributing to the <a class="reference external" href="http://bitbucket.org/mishok13/cloudmade-python/src/tip/docs/">docs</a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Installation</a><ul>
+<li><a class="reference external" href="#using-easy-install">Using <cite>easy_install</cite></a></li>
+<li><a class="reference external" href="#from-source">From source</a></li>
+<li><a class="reference external" href="#from-mercurial-checkout">From Mercurial checkout</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#development">Development</a></li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="before-you-start.html"
+                                  title="previous chapter">Important notes</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="using.html"
+                                  title="next chapter">Searching for local amenities, businesses and other places of interest</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/install.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="using.html" title="Searching for local amenities, businesses and other places of interest"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="before-you-start.html" title="Important notes"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" >CloudMade Python API tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+.. _reference-index:
+
+==============
+Reference API
+==============
+
+:Release: |version|
+:Date: |today|
+
+.. toctree::
+   :maxdepth: 2
+
+   api.rst
+   geocoding.rst
+   routing.rst
+   tiles.rst
+   vectors.rst
+..   staticmaps.rst

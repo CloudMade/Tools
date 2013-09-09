@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>route (CloudMade::RoutingService)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/routing.rb, line 26</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">route</span>(<span class="ruby-identifier">start_point</span>, <span class="ruby-identifier">end_point</span>, <span class="ruby-identifier">route_type</span> = <span class="ruby-value str">'car'</span>, <span class="ruby-identifier">transit_points</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">lang</span> = <span class="ruby-value str">'en'</span>, <span class="ruby-identifier">route_type_modifier</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-identifier">transit_points</span> = <span class="ruby-node">&quot;,[#{transit_points.map {|point| point.to_latlon}.join(',')}]&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">transit_points</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">route_type_modifier</span> = <span class="ruby-node">&quot;/#{route_type_modifier}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">route_type_modifier</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;/#{start_point.to_latlon}#{transit_points},#{end_point.to_latlon}/#{route_type}#{route_type_modifier}.js?lang=#{lang}&amp;units=km&quot;</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Route</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">connect</span> <span class="ruby-identifier">url</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

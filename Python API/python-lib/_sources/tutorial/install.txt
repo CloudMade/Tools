@@ -1,0 +1,58 @@
+============
+Installation
+============
+
+--------------------
+Using `easy_install`
+--------------------
+
+If you have easy_install on your system, you may install CloudMade Python API
+by simply issuing following command from your terminal::
+
+   easy_install CloudMade
+
+This will install CloudMade Python API and satisfy all required dependencies.
+
+If you don't have easy_install already installed, you should follow
+`instructions <http://pypi.python.org/pypi/setuptools#installation-instructions>`_\
+for your system.
+
+-----------
+From source
+-----------
+
+If you prefer to install from source, rather than using Python package manager,
+you can look for releases on
+`downloads page <http://bitbucket.org/mishok13/cloudmade-python/downloads/>`_\.
+Current release is |release|\.
+After downloading and unpacking the archive, change current directory to
+`cloudmade-python` and run this command::
+
+   python setup.py install
+
+This should install the package itself, but will not satisfy dependencies.
+Currently CloudMade Python API requires :mod:`simplejson` module for Python versions
+lower than 2.6. You can download latest release from
+`PyPI <http://pypi.python.org/pypi/simplejson/>`_\.
+
+-----------------------
+From Mercurial checkout
+-----------------------
+
+You can also install the latest development version, by using recent checkout.
+To do this, issue this command::
+
+   hg clone http://bitbucket.org/mishok13/cloudmade-python/
+
+To be able to do this, you have to have Mercurial version control system installed.
+Follow install instructions on `official site <http://mercurial.selenic.com/downloads/>`_\.
+
+===========
+Development
+===========
+
+If you feel like contributing to the project, please do so by:
+
+* Posting bug reports at `official bug-tracker <http://developers.cloudmade.com/projects/python-lib/issues>`_
+* Providing patches for the bugs using latest `checkout <http://bitbucket.org/mishok13/cloudmade-python/src/>`_
+* Contributing to the `docs <http://bitbucket.org/mishok13/cloudmade-python/src/tip/docs/>`_

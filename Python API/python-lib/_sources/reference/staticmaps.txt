@@ -1,0 +1,24 @@
+======================================================
+:mod:`staticmaps` --- Generate maps of arbitrary sizes
+======================================================
+
+.. module:: staticmaps
+   :synopsis: Static maps
+
+This module covers `CloudMade StaticMaps HTTP API <http://developers.cloudmade.com/projects/show/tiles/documents>`_\.
+
+.. class:: Tile(apikey, referrer)
+
+   *apikey* is your API key that you've registered at `CloudMade <http://www.cloudmade.com/user/show>`_\.
+
+   *referrer* is the host that is tied to your API key.
+
+   .. method:: fetch(query)
+   
+      Fetch staticmap from the server
+
+      *query* :class:`Query` object which defines the query being made against staticmaps server
+
+.. class:: Query(size)
+
+   *size* Map size, pair of integers.

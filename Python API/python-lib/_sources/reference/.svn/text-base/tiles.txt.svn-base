@@ -1,0 +1,50 @@
+=======================================================
+:mod:`tiles` --- Tiles access
+=======================================================
+
+.. module:: tiles
+   :synopsis: Map tiles
+
+This module covers `CloudMade's Tiles HTTP API <http://developers.cloudmade.com/projects/show/tiles/documents>`_\.
+
+------------
+Tile objects
+------------
+
+.. class:: Tile(apikey, referrer)
+
+   *apikey* is your API key that you've registered at `CloudMade <http://www.cloudmade.com/user/show>`_\.
+
+   *referrer* is the host that is tied to your API key.
+
+   .. method:: tile(styleid, size, zoom, xtile, ytile)
+   
+      Fetch PNG tile from tile server.
+
+      *styleid* is the CloudMade style id.
+
+      *size* is the size of the tile. Can be 256 or 64.
+
+      *zoom* is the zoom level on which you're trying to fetch tile.
+
+      *xtile* and *ytile* are tile numbers. 
+      Read more about these `here <http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames>`_.
+
+
+--------
+Examples
+--------
+
+Simple tile request (this tile contains almost all San Francisco).
+The snippet saves the tile to a files called SF.png. Fire up your image viewer
+after you run this script and check out the tile!:
+
+   .. code-block:: python
+      
+      from cloudmade import tiles
+      
+      tile = tiles.Tile('Your API key', 'your-domain.com')
+      data = tile.fetch('997', 256, 11, 327, 791)
+      with open('SF.png', 'w') as f:
+          f.write(data)
+

@@ -1,0 +1,81 @@
+===================================================
+:mod:`api` --- Generalized access to CloudMade APIs
+===================================================
+
+.. module:: api
+   :synopsis: Generalized access to CloudMade API
+
+This module gives generalized access to all CloudMade services throught :class:`API` object.
+
+.. class:: API(apikey, referrer)
+
+   *apikey* is your API key that you've registered at `CloudMade <http://www.cloudmade.com/user/show>`_\.
+
+   *referrer* is the host that is tied to your API key.
+
+   .. method:: find(query)
+
+      Perform a geocoding search for a given *query*. *query* is expected to be instance of
+      :class:`geocoding.Query`
+
+   .. method:: route(query)
+
+      Build a route using given query. *query* is expected to be instance of :class:`routing.Query`. 
+      For more details on building routing queries, visit :mod:`routing`
+
+   .. method:: tile(styleid, size, zoom, xtile, ytile)
+   .. method:: vector_tile(styleid, size, zoom, xtile, ytile)
+   
+      Fetch the tile from tile server. Use vector_tile() for getting SVG tiles and tile for getting PNG tiles.
+
+      *styleid* is the CloudMade style id.
+
+      *size* is the size of the tile. Can be 256 or 64.
+
+      *zoom* is the zoom level on which you're trying to fetch tile.
+
+      *xtile* and *ytile* are tile numbers. Read more about these `here <http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames>`_
+
+   .. method:: multitile(styleid, size, zoom, tilenums)
+
+      Fetch several tiles at once. 
+
+      *tilenums* is a sequence of xtile, ytile pairs
+
+   .. method:: staticmap(query)
+
+      Create static map using given *query*. *query* is expected to be instance of
+      :class:`staticmaps.Query`. For more details on building staticmaps
+      queries, visit :mod:`routing`.
+
+   .. method:: vector(query)
+
+      Create static map using given *query*. *query* is expected to be instance of
+      :class:`vectors.Query`. For more details on building staticmaps
+      queries, visit :mod:`vectors`.
+
+++++++++
+Examples
+++++++++
+
+Routing from San-Francisco to Palo Alto and getting tiles with end and start points of this route:
+
+.. code-block:: python
+
+   from cloudmade import api, geocoding, routing, utils
+
+   cm = api.API(apikey='YOUR-API-KEY', referrer='your-domain.com')
+   sf = cm.find(geocoding.Query('San Francisco'))['features'][0]['centroid']['coordinates']
+   palo_alto = cm.find(geocoding.Query('Palo Alto'))['features'][0]['centroid']['coordinates']
+   route = cm.route(routing.Query(sf, palo_alto))
+   zoom = 14
+   start, end = [utils.latlon2tilenums(zoom, point) for point in (sf, palo_alto)]
+   start, end = [cm.tile('1', 256, zoom, *point) for point in (start, end)]
+   with open('startpoint.png', 'w') as f:
+       f.write(start)
+   with open('endpoint.png', 'w') as f:
+       f.write(end)
+..    image = cm.staticmap(staticmaps.Query().path(route['route_geometry']))
+..    with open('./sf-paloalto.route.png', 'w') as map:
+..        map.write(image)
+

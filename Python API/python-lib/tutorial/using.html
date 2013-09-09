@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Searching for local amenities, businesses and other places of interest &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="up" title="CloudMade Python API tutorial" href="index.html" />
+    <link rel="next" title="Reference API" href="../reference/index.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="../reference/index.html" title="Reference API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">CloudMade Python API tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="searching-for-local-amenities-businesses-and-other-places-of-interest">
+<h1>Searching for local amenities, businesses and other places of interest<a class="headerlink" href="#searching-for-local-amenities-businesses-and-other-places-of-interest" title="Permalink to this headline">¶</a></h1>
+<p>Enter Python interpreter and import CloudMade package with the following
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">api</span>
+</pre></div>
+</div>
+<p>Now you have to create API object which will be used for querying CloudMade services:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="s">&#39;your-referrer.com&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Say, we want to look for pubs within 250 meters around Hanover Square in London, UK. To
+achieve this target we create a query that does exactly this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">query</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="s">&#39;Hanover Square,London,UK&#39;</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span><span class="o">.</span><span class="n">object_type</span><span class="p">(</span><span class="s">&#39;pub&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now all we have to do is issue the search command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result is a Python <tt class="docutils literal"><span class="pre">dict</span></tt> object, with a <a class="reference external" href="http://geojson.org/">GeoJSON</a>-like structure.
+You can now pretty print the result if you want to examine the result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, you might want to create a more complex request. For example, you know the bounding box
+that envelopes London center and want to look for IMAX cinemas. In order to do that, you have
+to look for objects with type &#8216;cinema&#8217; which have <cite>IMAX</cite> in their names. Here&#8217;s an example of
+such approach:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">query</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;IMAX&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">bbox</span><span class="p">([</span><span class="mf">51.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.14</span><span class="p">,</span> <span class="mf">51.75</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">])</span><span class="o">.</span><span class="n">object_type</span><span class="p">(</span><span class="s">&#39;cinema&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This covers basics of geocoding usage. But don&#8217;t exit your interactive interpreter just yet,
+there&#8217;s more to follow.</p>
+</div>
+<div class="section" id="finding-routes-between-locations">
+<h1>Finding routes between locations<a class="headerlink" href="#finding-routes-between-locations" title="Permalink to this headline">¶</a></h1>
+<p>Another common task in geo applications is building routes between locations.
+CloudMade has a powerful routing engine, which allows searching not only for
+car routes, but also pedestrian and bicycle ones.</p>
+<p>For example, you might be looking for a route between Washington Square Park
+and Buena Vista Park in San Francisco. First, we have to find location of
+these parks:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">current</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;Washington Square Park,San Francisco&#39;</span><span class="p">))[</span><span class="s">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;centroid&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">destination</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;Buena Vista Park, San Francisco&#39;</span><span class="p">))[</span><span class="s">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;centroid&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now, lets build a routing query:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">query</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">routing</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And at last, find the route between two points itself:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">route</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will print whole route instructions, which contain several records:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">route_geometry</span></tt> &#8211; list of points describing the geometry of the route</li>
+<li><tt class="docutils literal"><span class="pre">route_instructions</span></tt> &#8211; list of instructions for the route</li>
+<li><tt class="docutils literal"><span class="pre">route_summary</span></tt> &#8211; various statistics related to the route</li>
+<li><tt class="docutils literal"><span class="pre">status</span></tt> &#8211; 0 if everything went fine</li>
+<li><tt class="docutils literal"><span class="pre">version</span></tt> &#8211; current version of the routing engine</li>
+</ul>
+<p>You can also search for walking routes, like this (note <tt class="xref docutils literal"><span class="pre">foot()</span></tt> call):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">current</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;Nieuwmarkt, Amsterdam&#39;</span><span class="p">))[</span><span class="s">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;centroid&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">destination</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">geocoding</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">&#39;Buena Vista Park, San Francisco&#39;</span><span class="p">))[</span><span class="s">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;centroid&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">query</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">routing</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span><span class="o">.</span><span class="n">foot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And now build the route:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">route</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">route</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-tiles">
+<h1>Getting tiles<a class="headerlink" href="#getting-tiles" title="Permalink to this headline">¶</a></h1>
+<p>Now, you probably need to get the map itself. To do this, you can use
+tiles service. If you don&#8217;t know what tiles are more about them on
+<a class="reference external" href="http://wiki.openstreetmap.org/wiki/Slippy_Map">OpenStreetMap wiki</a>.</p>
+<p>To download a tile, you have to know it&#8217;s tile coordinate. As most
+geo services use latitudes and longitudes, there are two helper
+functions in CloudMade Python API which convert betwee geo
+and tile coordinates. Here&#8217;s a tiny example of such usage (we&#8217;re converting
+coordinates which point to Greenwich):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xtile</span><span class="p">,</span> <span class="n">ytile</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">latlon2tilenums</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="p">[</span><span class="mf">51.467</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that we also passed <tt class="docutils literal"><span class="pre">14</span></tt> to the <tt class="xref docutils literal"><span class="pre">latlon2tilenums()</span></tt> function.
+This number defines the zoom level of the tile.</p>
+<p>Now that we have so called tile coordinates (<tt class="docutils literal"><span class="pre">xtile</span></tt> and <tt class="docutils literal"><span class="pre">ytile</span></tt>)
+we can download the tile, which is described by these coordinates:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="n">xtile</span><span class="p">,</span> <span class="n">ytile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we have two more new things. First, we pass so-called <cite>style id</cite> as the
+first argument. Style id defines the way map looks. You can easily
+<a class="reference external" href="http://maps.cloudmade.com/editor">define</a> your own unique style to be
+used in your applications. The second argument passed to <tt class="xref docutils literal"><span class="pre">tile()</span></tt> is
+the size of the tile in pixels. Currently only 256 or 64 can be used
+for this parameter. Third parameter is the zoom level, which was
+explained before and than you pass tile coordinates.</p>
+<p>Well, this covers basic usage of CloudMade Python API. In order to continue,
+use <a class="reference external" href="../reference/index.html">reference API documentation</a>. You can also get some help at
+<a class="reference external" href="http://lists.cloudmade.com/">CloudMade developers mailing list</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Searching for local amenities, businesses and other places of interest</a></li>
+<li><a class="reference external" href="#finding-routes-between-locations">Finding routes between locations</a></li>
+<li><a class="reference external" href="#getting-tiles">Getting tiles</a></li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="install.html"
+                                  title="previous chapter">Installation</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../reference/index.html"
+                                  title="next chapter">Reference API</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/using.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../reference/index.html" title="Reference API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" >CloudMade Python API tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes
+END
+CloudMade.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/CloudMade.html
+END
+GeometryParseError.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/GeometryParseError.html
+END
+ObjectNotFound.html
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/ObjectNotFound.html
+END
+APIKeyMissingError.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/APIKeyMissingError.html
+END
+HTTPError.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/HTTPError.html
+END
+MockConnection.html
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/MockConnection.html
+END
+RouteNotFound.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/cogniance/!svn/ver/12302/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/RouteNotFound.html
+END

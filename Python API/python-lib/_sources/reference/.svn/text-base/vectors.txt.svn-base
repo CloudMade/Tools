@@ -1,0 +1,111 @@
+=======================================================
+:mod:`vectors` --- Vector data access
+=======================================================
+
+.. module:: vectors
+   :synopsis: Vector data access
+
+This module covers
+`CloudMade's Vector Stream Server API <http://developers.cloudmade.com/projects/show/vector-stream-server>`_\.
+
+--------------
+Vector objects
+--------------
+
+.. class:: Vector(apikey, referrer)
+
+   *apikey* is your API key that you've registered at `CloudMade <http://www.cloudmade.com/user/show>`_\.
+
+   *referrer* is the host that is tied to your API key.
+
+   .. method:: bbox(query)
+
+      Perform request with a given *query*.
+
+   .. method:: tile(styleid, size, zoom, xtile, ytile)
+   
+      Fetch SVG tile from tile server.
+
+      *styleid* is the CloudMade style id.
+
+      *size* is the size of the tile. Can be 256 or 64.
+
+      *zoom* is the zoom level on which you're trying to fetch tile.
+
+      *xtile* and *ytile* are tile numbers. 
+
+      Read more about these `here <http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames>`_.
+
+--------------
+Query objects
+--------------
+
+.. class:: Query(bbox)
+
+   Create new query builder. *bbox* is a sequnce of 4 coordinates
+   representing southern_latitude, western_longitude, 
+   northern_latitude and eastern_longitude respectively.
+
+   .. method:: types(*values)
+
+      Select which types of data should be returned. Can be any combination of
+      :const:`POLYGON`, :const:`LINE` or :const:`POINT`.
+
+   .. method:: viewport(width, height)
+
+      The size of the vector data returned in pixels.
+
+   .. method:: style(id)
+
+      Defines CloudMade style id which should be used for filtering and styling
+      of data
+
+   .. method:: zoom(level)      
+
+   .. method:: coords(type)
+
+   .. method:: precision(level)
+
+   .. method:: unused(action)
+
+   .. method:: exclude(*bboxes)
+
+---------
+Constants
+---------
+
+.. data:: POLYGON
+
+.. data:: LINE
+
+.. data:: POINT
+
+
+--------
+Examples
+--------
+
+Simple vector request:
+
+   .. code-block:: python
+      
+      from cloudmade import vectors
+      
+      vector = vectors.Vector(apikey='Your API key', referer='your-domain.com')
+      query = vectors.Query([51.45, -0.1, 51.52, 0.0]).style('1').types(vectors.LINE, vectors.POLYGON)
+      data = vector.bbox(query)
+      with open('London.svg', 'w') as f:
+          f.write(data)
+
+Downloading part of San Francisco in one tile:
+
+   .. code-block:: python
+
+      from cloudmade import vectors
+      
+      vector = vectors.Vector(apikey='Your API key', referer='your-domain.com')
+      data = vector.tile('997', 256, 11, 327, 791)
+      with open('SF.png', 'w') as f:
+          f.write(data)
+
+

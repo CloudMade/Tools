@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tiles — Tiles access &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="up" title="Reference API" href="index.html" />
+    <link rel="next" title="vectors — Vector data access" href="vectors.html" />
+    <link rel="prev" title="routing — Building routes" href="routing.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="vectors.html" title="vectors — Vector data access"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="routing.html" title="routing — Building routes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Reference API</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-tiles">
+<h1><tt class="xref docutils literal"><span class="pre">tiles</span></tt> &#8212; Tiles access<a class="headerlink" href="#module-tiles" title="Permalink to this headline">¶</a></h1>
+<p>This module covers <a class="reference external" href="http://developers.cloudmade.com/projects/show/tiles/documents">CloudMade&#8217;s Tiles HTTP API</a>.</p>
+<div class="section" id="tile-objects">
+<h2>Tile objects<a class="headerlink" href="#tile-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tiles.Tile">
+<em class="property">class </em><tt class="descclassname">tiles.</tt><tt class="descname">Tile</tt><big>(</big><em>apikey</em>, <em>referrer</em><big>)</big><a class="headerlink" href="#tiles.Tile" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>apikey</em> is your API key that you&#8217;ve registered at <a class="reference external" href="http://www.cloudmade.com/user/show">CloudMade</a>.</p>
+<p><em>referrer</em> is the host that is tied to your API key.</p>
+<dl class="method">
+<dt id="tiles.Tile.tile">
+<tt class="descname">tile</tt><big>(</big><em>styleid</em>, <em>size</em>, <em>zoom</em>, <em>xtile</em>, <em>ytile</em><big>)</big><a class="headerlink" href="#tiles.Tile.tile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch PNG tile from tile server.</p>
+<p><em>styleid</em> is the CloudMade style id.</p>
+<p><em>size</em> is the size of the tile. Can be 256 or 64.</p>
+<p><em>zoom</em> is the zoom level on which you&#8217;re trying to fetch tile.</p>
+<p><em>xtile</em> and <em>ytile</em> are tile numbers.
+Read more about these <a class="reference external" href="http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames">here</a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Simple tile request (this tile contains almost all San Francisco).
+The snippet saves the tile to a files called SF.png. Fire up your image viewer
+after you run this script and check out the tile!:</p>
+<blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">tiles</span>
+
+<span class="n">tile</span> <span class="o">=</span> <span class="n">tiles</span><span class="o">.</span><span class="n">Tile</span><span class="p">(</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">tile</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s">&#39;997&#39;</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">327</span><span class="p">,</span> <span class="mi">791</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;SF.png&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href=""><tt class="docutils literal"><span class="pre">tiles</span></tt> &#8212; Tiles access</a><ul>
+<li><a class="reference external" href="#tile-objects">Tile objects</a></li>
+<li><a class="reference external" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="routing.html"
+                                  title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">routing</span></tt> &#8212; Building routes</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="vectors.html"
+                                  title="next chapter"><tt class="docutils literal"><span class="pre">vectors</span></tt> &#8212; Vector data access</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/reference/tiles.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vectors.html" title="vectors — Vector data access"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="routing.html" title="routing — Building routes"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Reference API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+=======================================
+What's new in CloudMade Python API 0.2
+=======================================
+
+:Author: Andrii V. Mishkovskyi
+:Release: |release|
+:Date: |today|
+
+* Complete rewrite
+* Added support of new vectors API
+* Moved from nose to py.test for unit tests
+* Removed epydoc documentation in favor of ReST doc
+

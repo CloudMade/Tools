@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>xtile (CloudMade::TilesService)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/tiles.rb, line 65</span>
+65:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">xtile</span>(<span class="ruby-identifier">lon</span>, <span class="ruby-identifier">zoom</span>)
+66:       <span class="ruby-identifier">factor</span> = <span class="ruby-value">2</span><span class="ruby-operator">**</span>(<span class="ruby-identifier">zoom</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+67:       <span class="ruby-identifier">xtile</span> = <span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lon</span> <span class="ruby-operator">/</span> <span class="ruby-value">180.0</span>
+68:       <span class="ruby-keyword kw">return</span> (<span class="ruby-identifier">xtile</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">factor</span>).<span class="ruby-identifier">to_i</span>
+69:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

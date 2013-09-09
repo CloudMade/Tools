@@ -1,0 +1,6 @@
+=============
+Bug reporting
+=============
+
+In case you encounter a bug or a typo in documentation, report about this on official
+`Python CloudMade API bug tracker <http://developers.cloudmade.com/projects/python-lib/issues>`_\.

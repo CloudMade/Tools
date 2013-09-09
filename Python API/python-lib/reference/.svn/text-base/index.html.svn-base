@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Reference API &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="next" title="api — Generalized access to CloudMade APIs" href="api.html" />
+    <link rel="prev" title="Searching for local amenities, businesses and other places of interest" href="../tutorial/using.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="api — Generalized access to CloudMade APIs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../tutorial/using.html" title="Searching for local amenities, businesses and other places of interest"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="reference-api">
+<span id="reference-index"></span><h1>Reference API<a class="headerlink" href="#reference-api" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Release:</th><td class="field-body">0.2</td>
+</tr>
+<tr class="field"><th class="field-name">Date:</th><td class="field-body">December 28, 2009</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="api.html"><tt class="docutils literal"><span class="pre">api</span></tt> &#8212; Generalized access to CloudMade APIs</a><ul>
+<li class="toctree-l2"><a class="reference external" href="api.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="geocoding.html"><tt class="docutils literal"><span class="pre">geocoding</span></tt> &#8212; Making searching for places easier</a><ul>
+<li class="toctree-l2"><a class="reference external" href="geocoding.html#geocoder-objects">Geocoder objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="geocoding.html#query-objects">Query objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="geocoding.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="routing.html"><tt class="docutils literal"><span class="pre">routing</span></tt> &#8212; Building routes</a><ul>
+<li class="toctree-l2"><a class="reference external" href="routing.html#router-objects">Router objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="routing.html#query-objects">Query objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="routing.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="tiles.html"><tt class="docutils literal"><span class="pre">tiles</span></tt> &#8212; Tiles access</a><ul>
+<li class="toctree-l2"><a class="reference external" href="tiles.html#tile-objects">Tile objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="tiles.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="vectors.html"><tt class="docutils literal"><span class="pre">vectors</span></tt> &#8212; Vector data access</a><ul>
+<li class="toctree-l2"><a class="reference external" href="vectors.html#vector-objects">Vector objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="vectors.html#query-objects">Query objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="vectors.html#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference external" href="vectors.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="../tutorial/using.html"
+                                  title="previous chapter">Searching for local amenities, businesses and other places of interest</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="api.html"
+                                  title="next chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">api</span></tt> &#8212; Generalized access to CloudMade APIs</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/reference/index.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="api — Generalized access to CloudMade APIs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../tutorial/using.html" title="Searching for local amenities, businesses and other places of interest"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

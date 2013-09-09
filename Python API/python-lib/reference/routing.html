@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>routing — Building routes &mdash; CloudMade Python API v0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="CloudMade Python API v0.2 documentation" href="../index.html" />
+    <link rel="up" title="Reference API" href="index.html" />
+    <link rel="next" title="tiles — Tiles access" href="tiles.html" />
+    <link rel="prev" title="geocoding — Making searching for places easier" href="geocoding.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="tiles.html" title="tiles — Tiles access"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="geocoding.html" title="geocoding — Making searching for places easier"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Reference API</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-routing">
+<h1><tt class="xref docutils literal"><span class="pre">routing</span></tt> &#8212; Building routes<a class="headerlink" href="#module-routing" title="Permalink to this headline">¶</a></h1>
+<p>This module covers
+<a class="reference external" href="http://developers.cloudmade.com/projects/show/routing-http-api">CloudMade&#8217;s Routing HTTP API</a>.</p>
+<div class="section" id="router-objects">
+<h2>Router objects<a class="headerlink" href="#router-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="routing.Router">
+<em class="property">class </em><tt class="descclassname">routing.</tt><tt class="descname">Router</tt><big>(</big><em>apikey</em>, <em>referrer</em><big>)</big><a class="headerlink" href="#routing.Router" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>apikey</em> is your API key that you&#8217;ve registered at <a class="reference external" href="http://www.cloudmade.com/user/show">CloudMade</a>.</p>
+<p><em>referrer</em> is the host that is tied to your API key.</p>
+<dl class="method">
+<dt id="routing.Router.route">
+<tt class="descname">route</tt><big>(</big><em>query</em><big>)</big><a class="headerlink" href="#routing.Router.route" title="Permalink to this definition">¶</a></dt>
+<dd>Build a route for a given <em>query</em>.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="query-objects">
+<h2>Query objects<a class="headerlink" href="#query-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="routing.Query">
+<em class="property">class </em><tt class="descclassname">routing.</tt><tt class="descname">Query</tt><big>(</big><span class="optional">[</span><em>from_=None</em>, <em>to=None</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#routing.Query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new query builder. <em>from_</em> is the starting point of the route,</p>
+<dl class="method">
+<dt id="routing.Query.from_">
+<tt class="descname">from_</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#routing.Query.from_" title="Permalink to this definition">¶</a></dt>
+<dd>Set the starting point of the route.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.to">
+<tt class="descname">to</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#routing.Query.to" title="Permalink to this definition">¶</a></dt>
+<dd>Set the end point of the route.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.car">
+<tt class="descname">car</tt><big>(</big><span class="optional">[</span><em>shortest=False</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#routing.Query.car" title="Permalink to this definition">¶</a></dt>
+<dd>Look for car routes. Set <em>shortest</em> to <em>True</em> if you want to find
+the shortest route possible. This might not be the best route available though
+because route will be ignoring the level of the road (i.e. ignoring the fact
+that residential roads have maximum speed limits much lower than motorways).</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.foot">
+<tt class="descname">foot</tt><big>(</big><big>)</big><a class="headerlink" href="#routing.Query.foot" title="Permalink to this definition">¶</a></dt>
+<dd>Look for pedestrian routes.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.bicycle">
+<tt class="descname">bicycle</tt><big>(</big><big>)</big><a class="headerlink" href="#routing.Query.bicycle" title="Permalink to this definition">¶</a></dt>
+<dd>Look for bike routes.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.lang">
+<tt class="descname">lang</tt><big>(</big><em>specifier</em><big>)</big><a class="headerlink" href="#routing.Query.lang" title="Permalink to this definition">¶</a></dt>
+<dd>Define which language should be used for route instructions. <em>specifier</em> is
+expected to be two-letter <a class="reference external" href="http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes">ISO-639-2</a>
+code.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.js">
+<tt class="descname">js</tt><big>(</big><big>)</big><a class="headerlink" href="#routing.Query.js" title="Permalink to this definition">¶</a></dt>
+<dd>Set the response type to JSON.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.gpx">
+<tt class="descname">gpx</tt><big>(</big><big>)</big><a class="headerlink" href="#routing.Query.gpx" title="Permalink to this definition">¶</a></dt>
+<dd>Set the response type GPX.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.km">
+<tt class="descname">km</tt><big>(</big><big>)</big><a class="headerlink" href="#routing.Query.km" title="Permalink to this definition">¶</a></dt>
+<dd>Set the units of distance calculation to kilometers.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.miles">
+<tt class="descname">miles</tt><big>(</big><big>)</big><a class="headerlink" href="#routing.Query.miles" title="Permalink to this definition">¶</a></dt>
+<dd>Set the units of distance calculation to miles.</dd></dl>
+
+<dl class="method">
+<dt id="routing.Query.through">
+<tt class="descname">through</tt><big>(</big><em>*coords</em><big>)</big><a class="headerlink" href="#routing.Query.through" title="Permalink to this definition">¶</a></dt>
+<dd>Specify transit points. This method can be called several times.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Routing in Amsterdam from Central Station to Rijksmusem (or somewhere near):</p>
+<blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">routing</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">routing</span><span class="o">.</span><span class="n">Router</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="n">referer</span><span class="o">=</span><span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">routing</span><span class="o">.</span><span class="n">Query</span><span class="p">([</span><span class="mf">52.37</span><span class="p">,</span> <span class="mf">4.89</span><span class="p">],</span> <span class="p">[</span><span class="mf">52.36</span><span class="p">,</span> <span class="mf">4.88</span><span class="p">])</span><span class="o">.</span><span class="n">miles</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">router</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</blockquote>
+<p>Looking for a route between Kyiv and Kuznetsovsk with a stop in Zhitomir:</p>
+<blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cloudmade</span> <span class="kn">import</span> <span class="n">routing</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">routing</span><span class="o">.</span><span class="n">Router</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&#39;Your API key&#39;</span><span class="p">,</span> <span class="n">referer</span><span class="o">=</span><span class="s">&#39;your-domain.com&#39;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">routing</span><span class="o">.</span><span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">from_</span><span class="p">([</span><span class="mf">50.45</span><span class="p">,</span> <span class="mf">30.53</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">([</span><span class="mf">51.34</span><span class="p">,</span> <span class="mf">25.87</span><span class="p">])</span><span class="o">.</span><span class="n">through</span><span class="p">([</span><span class="mf">50.25</span><span class="p">,</span> <span class="mf">28.66</span><span class="p">])</span><span class="o">.</span><span class="n">lang</span><span class="p">(</span><span class="s">&#39;ru&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">router</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href=""><tt class="docutils literal"><span class="pre">routing</span></tt> &#8212; Building routes</a><ul>
+<li><a class="reference external" href="#router-objects">Router objects</a></li>
+<li><a class="reference external" href="#query-objects">Query objects</a></li>
+<li><a class="reference external" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="geocoding.html"
+                                  title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">geocoding</span></tt> &#8212; Making searching for places easier</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="tiles.html"
+                                  title="next chapter"><tt class="docutils literal"><span class="pre">tiles</span></tt> &#8212; Tiles access</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/reference/routing.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tiles.html" title="tiles — Tiles access"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="geocoding.html" title="geocoding — Making searching for places easier"
+             >previous</a> |</li>
+        <li><a href="../index.html">CloudMade Python API v0.2 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Reference API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2008-2009, Cloudmade.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

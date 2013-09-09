@@ -1,0 +1,10 @@
+=======================================
+What's new in CloudMade Python API 0.1
+=======================================
+
+:Author: Andrii V. Mishkovskyi
+:Release: 0.1
+
+* Initial release
+* Includes support of tiles, geocoding and routing APIs
+

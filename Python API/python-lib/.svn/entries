@@ -1,0 +1,163 @@
+9
+
+dir
+28240
+http://svn.kyiv.cogniance.com/svn/cogniance/CloudMade/developers/trunk/public/documentation/python-lib
+http://svn.kyiv.cogniance.com/svn/cogniance
+
+
+
+2009-12-28T15:32:36.551180Z
+20094
+amishkovskiy
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b86dc941-24cf-4aa8-9c6f-d14620e8828e
+
+_sources
+dir
+
+objects.inv
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+9c3f6e42298cf9de4e7f84c6d5c07c2f
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+license.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+9b6e7503930cd077f797ff32f6833f2b
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+_static
+dir
+
+reference
+dir
+
+whatsnew
+dir
+
+bugs.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+0b93b9c7cf913f988ba42da91f8556f4
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+tutorial
+dir
+
+genindex.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+2df84011b34200bcdda57412cd21bedf
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+searchindex.js
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+35b5065cf587259c003fdc762917be07
+2009-12-28T15:32:36.551180Z
+20094
+amishkovskiy
+
+search.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+8bf4fd0a8a8fcee2f15c6b386ae55288
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+modindex.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+f53129aab24ce753a06b6876138859f8
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+index.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+c2c1b59acc246dbfee6cf932728e8f23
+2009-12-28T15:32:36.551180Z
+20094
+amishkovskiy
+
+copyright.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+1f6bc1fb57f7ace997bf9755624945b7
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+about.html
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+1f24bfdec304762069678148e59a42d9
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+

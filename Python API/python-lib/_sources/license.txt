@@ -1,0 +1,8 @@
+=======
+License
+=======
+
+Python CloudMade API is licensed under the terms of GNU Lesser General Public License Version 3.
+
+You can read full text of the license either in the source distribution in the file LICENSE
+or on the `gnu.org <http://www.gnu.org/copyleft/lesser.html>`_ site.

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>latlon2tilenums (CloudMade::TilesService)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/tiles.rb, line 19</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">latlon2tilenums</span>(<span class="ruby-identifier">lat</span>, <span class="ruby-identifier">lon</span>, <span class="ruby-identifier">zoom</span>)
+      <span class="ruby-identifier">factor</span> = <span class="ruby-value">2</span><span class="ruby-operator">**</span>(<span class="ruby-identifier">zoom</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+      <span class="ruby-identifier">lat</span> = <span class="ruby-identifier">radians</span>(<span class="ruby-identifier">lat</span>)
+      <span class="ruby-identifier">lon</span> = <span class="ruby-identifier">radians</span>(<span class="ruby-identifier">lon</span>)
+      <span class="ruby-identifier">xtile</span> = <span class="ruby-value">1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lon</span> <span class="ruby-operator">/</span> <span class="ruby-constant">Math</span>.<span class="ruby-constant">PI</span>
+      <span class="ruby-identifier">ytile</span> = <span class="ruby-value">1</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-constant">Math</span>.<span class="ruby-identifier">tan</span>(<span class="ruby-identifier">lat</span>) <span class="ruby-operator">+</span> (<span class="ruby-value">1</span> <span class="ruby-operator">/</span> <span class="ruby-constant">Math</span>.<span class="ruby-identifier">cos</span>(<span class="ruby-identifier">lat</span>))) <span class="ruby-operator">/</span> <span class="ruby-constant">Math</span>.<span class="ruby-identifier">pi</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-constant">CloudMade</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Point</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xtile</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">factor</span>, <span class="ruby-identifier">ytile</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">factor</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

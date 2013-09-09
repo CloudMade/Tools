@@ -1,0 +1,102 @@
+=======================================================
+:mod:`geocoding` --- Making searching for places easier
+=======================================================
+
+.. module:: geocoding
+   :synopsis: Geo search
+
+This module covers 
+`CloudMade's Geocoding HTTP API <http://developers.cloudmade.com/projects/show/geocoding-http-api>`_\.
+
+----------------
+Geocoder objects
+----------------
+
+.. class:: Geocoder(apikey, referrer)
+
+   *apikey* is your API key that you've registered at `CloudMade <http://www.cloudmade.com/user/show>`_\.
+
+   *referrer* is the host that is tied to your API key.
+
+   .. method:: find(query)
+
+      Find objects that match the given *query*.
+      Response is basically a dict with geographical info.
+      There're several good examples of responses `here <http://developers.cloudmade.com/wiki/geocoding-http-api/Examples>`_\.
+
+-------------
+Query objects
+-------------
+
+.. class:: Query([search_query])
+
+   Create new query builder. *search_query* is optional and specifies the address
+   or a keyword to search for.
+
+   .. method:: bbox(coords[, bbox_only=False])
+
+      Set the bounding box, where the objects will be searched. *coords*
+      is expected to be any sequnce with 4 values representing 
+      southern_latitude, western_longitude, northern_latitude and
+      eastern_longitude respectively.
+      
+      If *bbox_only* is set to True than only objects in this bounding box
+      will be returned. If set to False objects not in the bounding box
+      will also be returned but they will be at the end of objects list.
+
+   .. method:: around(coord[, radius=100])
+
+      Search around the *coord*. *coord* could be a pair of longitude,
+      latitude coordinates or an address/keyword.
+
+      *radius* limits the area of the search.
+
+   .. method:: skip(num)
+
+      Skip exactly *num* first objects from the response.
+
+   .. method:: limit(num)
+
+      Limit the number of objects returned to *num* quantity.
+
+   .. method:: geometry(state)
+
+      Control the output of geometry. If set to True additional
+      geometry information will be returned.
+
+   .. method:: location(state)
+
+      If set to *True* will return additional location information
+
+   .. method:: object_type(type)
+
+      Defines what type of objects should be looked for.
+      See full listing of object types `here <http://developers.cloudmade.com/wiki/geocoding-http-api/Object_Types>`_\.
+
+--------
+Examples
+--------
+
+Looking for pubs not farther than 500 meters from current point (randomly chosen for this example):
+
+   .. code-block:: python
+   
+      from cloudmade import geocoding
+      from pprint import pprint
+
+      geocoder = geocoding.Geocoder(apikey='Your API key', referer='your-domain.com')
+      query = geocoding.Query('pub').around([51.51384, -0.10952], 500)
+      result = geocoder.find(query)
+      pprint(result)
+
+Looking for exactly 5 cinemas in bounding box including Berlin: 
+   .. code-block:: python
+   
+      from cloudmade import geocoding
+      from pprint import pprint
+
+      geocoder = geocoding.Geocoder(apikey='Your API key', referer='your-domain.com')
+      query = geocoding.Query().bbox([52.5884, 13.1788, 52.4745, 13.5381], True).object_type('cinema').limit(5)
+      result = geocoder.find(query)
+      pprint(result)
+

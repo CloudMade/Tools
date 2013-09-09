@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>find_closest (CloudMade::GeocodingService)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/geocoding.rb, line 39</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_closest</span>(<span class="ruby-identifier">object_type</span>, <span class="ruby-identifier">lat</span>, <span class="ruby-identifier">lon</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">lat_lon</span> = <span class="ruby-node">&quot;#{CGI.escape(lon.to_s + '+' + lat.to_s)}&quot;</span>
+      <span class="ruby-identifier">request</span> = <span class="ruby-node">&quot;/closest/#{object_type}/#{lat_lon}.js?#{Service.to_url_params(options)}&quot;</span>
+      <span class="ruby-constant">GeoResult</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">connect</span> <span class="ruby-identifier">request</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

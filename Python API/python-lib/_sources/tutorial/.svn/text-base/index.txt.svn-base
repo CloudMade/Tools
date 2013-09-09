@@ -1,0 +1,16 @@
+.. _tutorial-index:
+
+=============================
+CloudMade Python API tutorial
+=============================
+
+:Release: |version|
+:Date: |today|
+
+.. toctree::
+   :maxdepth: 2
+
+   before-you-start.rst
+   install.rst
+   using.rst
+   

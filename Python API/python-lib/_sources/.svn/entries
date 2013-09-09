@@ -1,0 +1,97 @@
+9
+
+dir
+28240
+http://svn.kyiv.cogniance.com/svn/cogniance/CloudMade/developers/trunk/public/documentation/python-lib/_sources
+http://svn.kyiv.cogniance.com/svn/cogniance
+
+
+
+2009-12-28T15:32:36.551180Z
+20094
+amishkovskiy
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b86dc941-24cf-4aa8-9c6f-d14620e8828e
+
+whatsnew
+dir
+
+license.txt
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+363766656e7e356b1f89ee22bfd25ceb
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+tutorial
+dir
+
+index.txt
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+e7da29bd71a005b6596a523d6f43b948
+2009-12-28T15:32:36.551180Z
+20094
+amishkovskiy
+
+copyright.txt
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+2abc1d7ce5d891eac541dbdea98f1a22
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+about.txt
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+
+reference
+dir
+
+bugs.txt
+file
+
+
+
+
+2010-12-13T17:09:36.000000Z
+7c7d5c5d9adcedd142115237b222d5d1
+2009-12-25T12:59:27.739657Z
+20055
+msoloviova
+

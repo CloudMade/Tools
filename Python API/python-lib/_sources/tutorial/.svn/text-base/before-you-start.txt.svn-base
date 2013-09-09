@@ -1,0 +1,31 @@
+===============
+Important notes
+===============
+
+------------------------
+Getting Python installed
+------------------------
+
+CloudMade Python API requires at least Python 2.4 to be installed on the system.
+If you don't have required version installed already, get the latest version
+on official `Python site <http://python.org/download/>`_\. You need 2.x version,
+latest Python version is 2.6.4.
+
+If you're not familiar with Python programming language, I suggest you start
+with great `tutorial <http://docs.python.org/tutorial/>`_\.
+
+-------
+API key
+-------
+
+All CloudMade services require so-called API key in order to authenticate the user.
+This is also true for CloudMade Python API. All examples in this tutorial will
+not work correctly if you don't provide API key. You can get one
+`here <http://developers.cloudmade.com/>`_\.
+
+--------
+Problems
+--------
+
+If you get into troubles with any of the parts of tutorials, don't hesitate to
+`contact us <mailto:support@cloudmade.com>`_\.

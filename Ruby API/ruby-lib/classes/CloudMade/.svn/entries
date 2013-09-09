@@ -1,0 +1,325 @@
+9
+
+dir
+28240
+http://svn.kyiv.cogniance.com/svn/cogniance/CloudMade/developers/trunk/public/documentation/ruby-lib/classes/CloudMade
+http://svn.kyiv.cogniance.com/svn/cogniance
+
+
+
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b86dc941-24cf-4aa8-9c6f-d14620e8828e
+
+LocationsService.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+a4d3fd31f95ce1ab4571588d438d7b47
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+BBox.src
+dir
+
+Client.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+8c426a9ba9ee2679dabacb6b2a55c905
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+GeocodingService.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+8fb4326ba22990d231ec0529aa2adee4
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+GeoResults.src
+dir
+
+Service.src
+dir
+
+MultiPolygon.src
+dir
+
+Line.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+3659acb728c6bf8f3804dab3f46a7390
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+Polygon.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+fbd872f8a76cd7880c22fa74bed8fea5
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+RoutingService.src
+dir
+
+GeoResult.src
+dir
+
+Route.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+4adbb39f45b3efacc58ccb1d20ea50eb
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+RouteInstruction.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+65a703a255e969dcf045559e21463e99
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+Client.src
+dir
+
+MultiLine.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+e2b0764b0e7c3d983fcd2875652a0363
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+Location.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+d5af92855547075ffe8e20fbdaaad173
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+GeoResult.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+5d15bc2cbaef6ca08018a54d3a79f05e
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+RouteSummary.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+4d4b04600b347145699af68b1692305e
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+Point.src
+dir
+
+Geometry.src
+dir
+
+Route.src
+dir
+
+Connection.src
+dir
+
+RouteInstruction.src
+dir
+
+TilesService.src
+dir
+
+MultiLine.src
+dir
+
+Point.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+a180a7dedd1e181e0c6d8a6612c5db4f
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+BBox.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+39d6fa8b9f8d8df59f8c0e8dacec174e
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+Location.src
+dir
+
+Geometry.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+d6fdd05e0c41592558cb28e0c5cc5a5c
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+GeoResults.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+e89d01bd262039449942969c56a0586f
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+RouteSummary.src
+dir
+
+Connection.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+c3ecdef4ef7d39da6642e38fcd9b61d4
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+Service.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+98d9a8e916ae0b124e0f088cd5d7aeaf
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+TilesService.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+1dca5f76cafdf969aa3b66a9902a9019
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+GeocodingService.src
+dir
+
+MultiPolygon.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+e09b5c69c2e1892810648c77d97799c3
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+RoutingService.html
+file
+
+
+
+
+2010-12-13T17:09:37.000000Z
+9e9888aab9c787fe1239843474daf2cf
+2009-03-24T12:00:37.945624Z
+12302
+msoloviova
+
+Line.src
+dir
+
+Polygon.src
+dir
+
